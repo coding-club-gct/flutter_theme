@@ -3,48 +3,48 @@ library flutter_theme;
 import 'package:catppuccin/catppuccin.dart';
 import 'package:flutter/material.dart';
 
-Map<FlavourColorKeys, Color> convertColorInfoMapToColorMap(
-    Map<FlavourColorKeys, ColorInfo> colorInfoMap) {
+Map<FlavorColorKeys, Color> convertColorInfoMapToColorMap(
+    Map<FlavorColorKeys, ColorInfo> colorInfoMap) {
   return colorInfoMap.map((key, colorInfo) => MapEntry(key,
       Color.fromRGBO(colorInfo.rgb[0], colorInfo.rgb[1], colorInfo.rgb[2], 1)));
 }
 
-Map<FlavourColorKeys, Color> mocha =
-    convertColorInfoMapToColorMap(variants[FlavourNames.mocha]!);
-Map<FlavourColorKeys, Color> latte =
-    convertColorInfoMapToColorMap(variants[FlavourNames.latte]!);
+Map<FlavorColorKeys, Color> mocha =
+    convertColorInfoMapToColorMap(variants[FlavorNames.mocha]!);
+Map<FlavorColorKeys, Color> latte =
+    convertColorInfoMapToColorMap(variants[FlavorNames.latte]!);
 
 ThemeData catppuccinTheme(
     bool isDark, Color? primaryColor, Color? secondaryColor,
     {bool useMaterial3 = true}) {
-  Map<FlavourColorKeys, Color> flavour = isDark ? mocha : latte;
-  primaryColor ??= flavour[FlavourColorKeys.mauve];
-  secondaryColor ??= flavour[FlavourColorKeys.pink];
+  Map<FlavorColorKeys, Color> flavour = isDark ? mocha : latte;
+  primaryColor ??= flavour[FlavorColorKeys.mauve];
+  secondaryColor ??= flavour[FlavorColorKeys.pink];
   return ThemeData(
       useMaterial3: useMaterial3,
       appBarTheme: AppBarTheme(
           elevation: 0,
           titleTextStyle: TextStyle(
-              color: flavour[FlavourColorKeys.text],
+              color: flavour[FlavorColorKeys.text],
               fontSize: 20,
               fontWeight: FontWeight.bold),
-          backgroundColor: flavour[FlavourColorKeys.crust],
-          foregroundColor: flavour[FlavourColorKeys.mantle]),
+          backgroundColor: flavour[FlavorColorKeys.crust],
+          foregroundColor: flavour[FlavorColorKeys.mantle]),
       colorScheme: ColorScheme(
-        background: flavour[FlavourColorKeys.base]!,
+        background: flavour[FlavorColorKeys.base]!,
         brightness: isDark ? Brightness.dark : Brightness.light,
-        error: flavour[FlavourColorKeys.surface2]!,
-        onBackground: flavour[FlavourColorKeys.text]!,
-        onError: flavour[FlavourColorKeys.red]!,
+        error: flavour[FlavorColorKeys.surface2]!,
+        onBackground: flavour[FlavorColorKeys.text]!,
+        onError: flavour[FlavorColorKeys.red]!,
         onPrimary: primaryColor!,
         onSecondary: secondaryColor!,
-        onSurface: flavour[FlavourColorKeys.text]!,
-        primary: flavour[FlavourColorKeys.crust]!,
-        secondary: flavour[FlavourColorKeys.mantle]!,
-        surface: flavour[FlavourColorKeys.surface0]!,
+        onSurface: flavour[FlavorColorKeys.text]!,
+        primary: flavour[FlavorColorKeys.crust]!,
+        secondary: flavour[FlavorColorKeys.mantle]!,
+        surface: flavour[FlavorColorKeys.surface0]!,
       ),
       textTheme: const TextTheme().apply(
-        bodyColor: flavour[FlavourColorKeys.text],
+        bodyColor: flavour[FlavorColorKeys.text],
         displayColor: primaryColor,
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(

@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  catppuccin: ^0.2.1
+  catppuccin: ^0.2.2
 
 dev_dependencies:
   flutter_test:
